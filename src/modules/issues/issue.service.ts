@@ -51,7 +51,7 @@ const attachReporters = async (issues: Issue[]): Promise<IssueWithReporter[]> =>
   );
 
   const reporterMap = new Map<number, ReporterRow>();
-  reportersResult.rows.forEach((reporter) => reporterMap.set(reporter.id, reporter));
+  reportersResult.rows.forEach((reporter: ReporterRow) => reporterMap.set(reporter.id, reporter));
 
   return issues.map((issue) => {
     const reporter = reporterMap.get(issue.reporter_id) ?? null;

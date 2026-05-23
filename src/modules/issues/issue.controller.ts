@@ -29,13 +29,13 @@ export const createIssueController = asyncHandler(async (req: Request, res: Resp
 
 export const getAllIssuesController = asyncHandler(async (req: Request, res: Response): Promise<void> => {
   const issues = await getIssues(req.query as Partial<IssueQuery>);
-  sendSuccess(res, StatusCodes.OK, null, issues);
+  sendSuccess(res, StatusCodes.OK, 'Issues retrieved successfully', issues);
 });
 
 export const getSingleIssueController = asyncHandler(async (req: Request, res: Response): Promise<void> => {
   const issueId = parsePositiveInteger(req.params.id as string);
   const issue = await getIssueById(issueId);
-  sendSuccess(res, StatusCodes.OK, null, issue);
+  sendSuccess(res, StatusCodes.OK, 'Issue retrieved successfully', issue);
 });
 
 export const updateIssueController = asyncHandler(async (req: Request, res: Response): Promise<void> => {
