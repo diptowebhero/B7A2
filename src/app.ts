@@ -14,7 +14,6 @@ app.use(express.json());
 app.get('/', (_req, res) => {
   sendSuccess(res, StatusCodes.OK, 'DevPulse API is running', {
     service: 'DevPulse API',
-    version: '1.0.0',
   });
 });
 
